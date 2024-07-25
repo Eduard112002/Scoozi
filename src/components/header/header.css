@@ -1,0 +1,198 @@
+.header{
+    background-image: url("/src/img/header-paralax.jpg");
+    background-size: 206% 101%;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    height: 100vh;
+}
+
+.navigation_container{
+    display: flex;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navigation_logo{
+    width: 250px;
+    margin-right: 270px;
+}
+
+.navigation_list{
+    display: flex;
+    padding-top: 25px;
+}
+
+.navigation_button{
+    list-style-type: none;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 200;
+    font-style: normal;
+    margin-right: 35px;
+}
+
+.navigation_button:hover {
+    animation-name: colorTextNav;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorTextNav {
+    from{
+        color:white;
+    }
+    to{
+        color: #da4e48;
+    }
+}
+
+.navigation_button a{
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+.info_restaurant{
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 55px;
+    padding-top: 80px;
+    cursor: default;
+}
+
+.title_restaurant {
+    font-size: 70px;
+    color: white;
+    font-weight: 400;
+    padding-left: 15%;
+    letter-spacing: 8px;
+    line-height: 80px;
+}
+
+.text_title{
+    letter-spacing: 8px;
+    padding-left: 3%;
+}
+
+.logo_title{
+    color: #da4e48;
+    text-shadow: 0 0 3px rgba(202, 228, 225, 0.92), 0 0 2px rgba(202, 228, 225, 0.34), 0 0 3px rgba(191, 226, 255, 0.52), 0 0 3px rgba(191, 226, 255, 0.92);
+}
+
+.info_restaurant__text{
+    font-size: 28px;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 6px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.but_reserve{
+    width: 290px;
+    height: 50px;
+    background-color: #da4e48;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 100px;
+
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.but_reserve:hover{
+    animation-name: colorBut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorBut {
+    from{
+        background-color: #da4e48;
+    }
+    to{
+        background-color: #a93d37;
+        box-shadow: 5px 2px 5px #da4e48 inset, -5px -2px 5px #da4e48 inset;
+    }
+}
+
+.connection_list {
+    display: flex;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.33);
+    justify-content: space-between;
+}
+
+.connection_list_element{
+    display: flex;
+    width: 37%;
+    line-height: 28px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #808080;
+    position: relative;
+    cursor: default;
+}
+
+.telephone{
+    color: #da4e48;
+    position: absolute;
+    text-decoration: none;
+    left: 0;
+    top: 25px;
+}
+
+.telephone:hover {
+    animation-name: colorConnection;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes colorConnection {
+    from{
+        color: #da4e48;
+    }
+    to{
+        color: #a93d37;
+    }
+}
+
+.logo_vk:after{
+    content: '';
+    background: url('/src/img/vk_logo_red.svg') no-repeat center;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+
+.logo_vk:hover:after{
+    animation-name: colorConnectionVk;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes colorConnectionVk {
+    from{
+        background: url('/src/img/vk_logo_red.svg') no-repeat center;
+    }
+    to{
+        background: url('/src/img/vk_logo_black.svg') no-repeat center;
+    }
+}
