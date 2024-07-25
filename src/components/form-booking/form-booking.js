@@ -1,13 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import './form-booking.css';
+import { useDispatch } from 'react-redux';
+import {useSelector} from "react-redux";
 
-function FormBooking({openForm}) {
-    const [displayForm, setDisplayForm] = useState(openForm);
-    useEffect(() => {
-        setDisplayForm(() => openForm)
-        },[openForm])
+import { exitFormBooking } from "../../actions";
+
+
+function FormBooking({}) {
+    const dispatch = useDispatch();
+    const displayForm = useSelector((s) => s.displayForm);
     function exitForm () {
-        setDisplayForm((s) => !s)
+        dispatch(exitFormBooking(false));
     }
     return <div className={displayForm ? "form_book" : "form_book_none"} >
         <div className="fields_form">
