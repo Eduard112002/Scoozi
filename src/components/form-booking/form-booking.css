@@ -1,7 +1,7 @@
 .form_book{
     z-index: 10;
     background-color: rgba(0, 0, 0, 0.31);
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -15,7 +15,7 @@
 
 .fields_form{
     width: 600px;
-    height: 800px;
+    height: 700px;
     border: 1px solid black;
     box-shadow: 0 0 0 3px #da4e48;
     background-color: white;
@@ -68,13 +68,14 @@
 
 .container_form_book{
     display: flex;
+    padding: 15px;
 }
 
 .info_user{
     width: 225px;
     height: 20px;
     padding: 15px 20px;
-    margin: 15px;
+    margin: 15px 0;
     border: 1px solid #e5e5e5;
     border-radius: 2px;
 }
@@ -86,4 +87,22 @@
 .info_user:focus {
     border: 1px solid #da4e48;
     outline: none;
+}
+
+.form_people{
+    width: 270px;
+    color: #9b9b9b;
+    height: 48px;
+}
+
+.form_people option{
+    color: black;
+    padding: 3px;
+}
+
+.form_time_title{
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #5a5a5a;
+    width: 250px;
 }

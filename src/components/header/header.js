@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import './header.css';
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { openFormBooking } from "../../actions";
 
