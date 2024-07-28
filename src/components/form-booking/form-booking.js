@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import './form-booking.css';
 import { useDispatch } from 'react-redux';
 import {useSelector} from "react-redux";
 
-import { DatePicker, Space, TimePicker } from 'antd';
+import { DatePicker, Space } from 'antd';
 import ru from 'antd/es/date-picker/locale/ru_RU';
 import { exitFormBooking, numberPeople } from "../../actions";
 import dayjs from 'dayjs';
@@ -36,14 +36,6 @@ function FormBooking({}) {
             disabledHours: () => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 23],
         };
     };
-    const clic = (e) => {
-        const withinBoundaries = e.composedPath().includes();
-        console.log(e.composedPath())
-
-        if ( ! withinBoundaries ) {
-            //div.style.display = 'none'; // скрываем элемент т к клик был за его пределами
-        }
-    };
     const currentDate = new Date();
     const datetime = currentDate.getFullYear() + "-"
         + '0' + (currentDate.getMonth()+1)  + "-"
@@ -54,9 +46,9 @@ function FormBooking({}) {
     function exitForm () {
         dispatch(exitFormBooking(false));
     }
-    return <div className={displayForm ? "form_book" : "form_book_none"} onClick={(e) => clic(e)}>
-        <div className="fields_form">
-            <div className="header_form">
+    return <div className={displayForm ? "form_book" : "form_book_none"} onClick={exitForm}>
+        <div className="fields_form" onClick={(e) => e.stopPropagation()}>
+            <div className="header_form" >
                 <h2 className="title_form_book">Забронировать стол</h2>
                 <p className="description_form_book">Отправте запрос, наш менеджер уточнит информацию и перезвонит Вам</p>
                 <button
