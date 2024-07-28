@@ -1,20 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import './form-booking.css';
 import { useDispatch } from 'react-redux';
 import {useSelector} from "react-redux";
 
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space, TimePicker } from 'antd';
 import ru from 'antd/es/date-picker/locale/ru_RU';
 import { exitFormBooking, numberPeople } from "../../actions";
+import dayjs from 'dayjs';
 
 const buddhistLocale= {
     ...ru,
     lang: {
         ...ru.lang,
         fieldDateFormat: 'YYYY-MM-DD',
-        fieldDateTimeFormat: 'YYYY-MM-DD HH:mm:ss',
+        fieldDateTimeFormat: 'YYYY-MM-DD HH:mm',
         yearFormat: 'YYYY',
         cellYearFormat: 'YYYY',
+        time: 'HH:mm'
     },
 };
 
@@ -26,11 +28,33 @@ function FormBooking({}) {
     const handleChange = (e) => {
          dispatch(numberPeople(e.target.value))
     };
-    const displayForm = useSelector((s) => s.displayForm);
+    const dateString = (el, date) => {
+        console.log(date);
+    };
+    const disabledDateTime = () => {
+        return {
+            disabledHours: () => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 23],
+        };
+    };
+    const clic = (e) => {
+        const withinBoundaries = e.composedPath().includes();
+        console.log(e.composedPath())
+
+        if ( ! withinBoundaries ) {
+            //div.style.display = 'none'; // скрываем элемент т к клик был за его пределами
+        }
+    };
+    const currentDate = new Date();
+    const datetime = currentDate.getFullYear() + "-"
+        + '0' + (currentDate.getMonth()+1)  + "-"
+        + currentDate.getDate();
+    const defaultValue = dayjs(datetime + ' 10:00');
+    const dateFormat = 'YYYY-MM-DD';
+        const displayForm = useSelector((s) => s.displayForm);
     function exitForm () {
         dispatch(exitFormBooking(false));
     }
-    return <div className={displayForm ? "form_book" : "form_book_none"} >
+    return <div className={displayForm ? "form_book" : "form_book_none"} onClick={(e) => clic(e)}>
         <div className="fields_form">
             <div className="header_form">
                 <h2 className="title_form_book">Забронировать стол</h2>
@@ -50,16 +74,46 @@ function FormBooking({}) {
                     <select  className="form_people info_user" onChange={handleChange}>
                         {numberPeopleList}
                     </select>
+                    <textarea className="info_user comment" placeholder="Ваши пожелания"/>
                 </div>
                 <div className="form_time">
-                    <label className="form_time_title">Укажите дату и время *</label>
-                    <Space direction="vertical" >
-                        <DatePicker locale={buddhistLocale}/>
+                    <Space direction="vertical">
+                        <DatePicker
+                            locale={buddhistLocale}
+                            placeholder='Укажите дату и время *'
+                            onChange={dateString}
+                            className="info_user form_people"
+                            popupStyle={displayForm ? {position: 'fixed', height: 0} : {display: 'none'}}
+                            showTime
+                            open='false'
+                            defaultValue={defaultValue}
+                            disabledTime={disabledDateTime}
+                            minDate={dayjs(datetime, dateFormat)}
+                        />
                     </Space>
                 </div>
             </form>
+            <button className="but_reserve form_send">Отправить</button>
         </div>
     </div>
 }
 
 export default FormBooking;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

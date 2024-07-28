@@ -24,7 +24,7 @@
 }
 
 .header_form{
-    height: 10%;
+    height: 13%;
     padding: 15px;
     background-color: #da4e48;
     color: white;
@@ -68,7 +68,8 @@
 
 .container_form_book{
     display: flex;
-    padding: 15px;
+    padding: 0 15px 15px 15px;
+    border: 1px solid #e5e5e5;
 }
 
 .info_user{
@@ -106,3 +107,79 @@
     color: #5a5a5a;
     width: 250px;
 }
+
+.comment{
+    resize: none;
+    padding: 10px;
+    height: 80px;
+    width: 250px !important;
+}
+
+.form_send{
+    width: 210px;
+    padding: 10px 10px 10px 35px;
+    font-size: 18px;
+    position: relative;
+    margin: 25px 15px 0 auto;
+}
+
+.form_send:after{
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: url("/src/img/telegram-logo.svg") no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+}
+
+.ant-picker-panel-container{
+    width: 270px !important;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-datetime-panel .ant-picker-date-panel{
+    height: 210px !important;
+    overflow: hidden;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-header {
+    padding-right: 20px;
+    height: 35px !important;
+}
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-cell{
+    padding: 2px 0;
+}
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-date-panel .ant-picker-body {
+    padding: 0 18px 0 0;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-datetime-panel{
+    display: block;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-time-panel .ant-picker-content {
+    padding-top: 5px;
+    height: 50px;
+    width: 270px;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-ranges {
+    padding-inline: 12px 30px;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-time-panel-column {
+    padding-left: 40px;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-time-panel-column {
+    flex: auto;
+}
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-dropdown .ant-picker-ranges .ant-picker-ok {
+    margin: 0;
+}
+
+.ant-picker-now-btn{
+    display: none;
+}
+
