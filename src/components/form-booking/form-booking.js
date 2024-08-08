@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import './form-booking.css';
 import { useDispatch } from 'react-redux';
 import {useSelector} from "react-redux";
@@ -46,7 +46,8 @@ function FormBooking({}) {
     function exitForm () {
         dispatch(exitFormBooking(false));
     }
-    return <div className={displayForm ? "form_book" : "form_book_none"} onClick={exitForm}>
+
+    return <div onMouseEnter={() => console.log('tyt')} className={displayForm ? "form_book" : "form_book_none"} onClick={exitForm} >
         <div className="fields_form" onClick={(e) => e.stopPropagation()}>
             <div className="header_form" >
                 <h2 className="title_form_book">Забронировать стол</h2>

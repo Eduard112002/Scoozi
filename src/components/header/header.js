@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './header.css';
 import { useDispatch } from "react-redux";
 
@@ -13,10 +13,31 @@ export default function Header() {
     const navButton = navButtonName.map(el => {
         return <li key={el} className="navigation_button" onClick={() => console.log(el)}><a href="#">{el}</a></li>
     });
+    const [scroll, setScroll] = useState(0);
+    const [positionScroll, sesPositionScroll] = useState('')
+    const handleScroll = () => {
+        if (positionScroll === 'top') {
+            setScroll(window.scrollY);
+        } else {
+            setScroll(23);
+        }
+    };
+    useEffect(() => {
+        window.addEventListener("scroll", function() {
+            let scrollT = window.scrollY;
+            handleScroll();
+            if (scrollT > scroll) {
+                sesPositionScroll('bottom');
+            } else {
+                sesPositionScroll('top');
+            }
+        });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
     return (<header className="header">
-        <nav className="navigation_container">
-            <img src="https://scoozi.ru/images/logo3.png" className="navigation_logo" alt="https://scoozi.ru/images/logo3.png"/>
-            <ul className="navigation_list">{navButton}</ul>
+        <nav className={scroll === 0 ? "navigation_container" : positionScroll === 'bottom' ? "navigation_container scrollDown_nav__container" : "navigation_container scrollUp_nav__container"}>
+            <img src="https://scoozi.ru/images/logo3.png" className={scroll === 0 ? "navigation_logo" : positionScroll === 'bottom' ? "navigation_logo scrollDown_logo" : "navigation_logo scrollUp_logo"} alt="https://scoozi.ru/images/logo3.png"/>
+            <ul className={scroll === 0 ? "navigation_list" : positionScroll === 'bottom' ? "navigation_list scrollDown_nav_list" : "navigation_list scrollUp_nav_list"}>{navButton}</ul>
         </nav>
         <div className="info_restaurant">
             <h1 className="title_restaurant"><span className="logo_title">SCOOZI</span> — НАСТОЯЩИЙ <br/> <span className="text_title">СЕМЕЙНЫЙ РЕСТОРАН</span></h1>
