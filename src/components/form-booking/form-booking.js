@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React from "react";
 import './form-booking.css';
 import { useDispatch } from 'react-redux';
 import {useSelector} from "react-redux";
@@ -37,17 +37,17 @@ function FormBooking({}) {
         };
     };
     const currentDate = new Date();
+    const dateDay = currentDate.getHours() < 21 ? currentDate.getDate() : currentDate.getDate() + 1;
     const datetime = currentDate.getFullYear() + "-"
-        + '0' + (currentDate.getMonth()+1)  + "-"
-        + currentDate.getDate();
+        + '0' + (currentDate.getMonth() + 1) + "-"
+        + dateDay;
     const defaultValue = dayjs(datetime + ' 10:00');
     const dateFormat = 'YYYY-MM-DD';
         const displayForm = useSelector((s) => s.displayForm);
     function exitForm () {
         dispatch(exitFormBooking(false));
     }
-
-    return <div onMouseEnter={() => console.log('tyt')} className={displayForm ? "form_book" : "form_book_none"} onClick={exitForm} >
+    return <div className={displayForm ? "form_book" : "form_book_none"} onClick={exitForm} >
         <div className="fields_form" onClick={(e) => e.stopPropagation()}>
             <div className="header_form" >
                 <h2 className="title_form_book">Забронировать стол</h2>

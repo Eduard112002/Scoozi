@@ -16,28 +16,28 @@ export default function Header() {
     const [scroll, setScroll] = useState(0);
     const [positionScroll, sesPositionScroll] = useState('')
     const handleScroll = () => {
-        if (positionScroll === 'top') {
-            setScroll(window.scrollY);
+        if (positionScroll === 'top' && window.scrollY <= 3) {
+            setScroll(3);
         } else {
-            setScroll(23);
+            setScroll(window.scrollY);
         }
     };
     useEffect(() => {
         window.addEventListener("scroll", function() {
             let scrollT = window.scrollY;
-            handleScroll();
             if (scrollT > scroll) {
                 sesPositionScroll('bottom');
             } else {
                 sesPositionScroll('top');
             }
+            handleScroll();
         });
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [scroll]);
     return (<header className="header">
-        <nav className={scroll === 0 ? "navigation_container" : positionScroll === 'bottom' ? "navigation_container scrollDown_nav__container" : "navigation_container scrollUp_nav__container"}>
-            <img src="https://scoozi.ru/images/logo3.png" className={scroll === 0 ? "navigation_logo" : positionScroll === 'bottom' ? "navigation_logo scrollDown_logo" : "navigation_logo scrollUp_logo"} alt="https://scoozi.ru/images/logo3.png"/>
-            <ul className={scroll === 0 ? "navigation_list" : positionScroll === 'bottom' ? "navigation_list scrollDown_nav_list" : "navigation_list scrollUp_nav_list"}>{navButton}</ul>
+        <nav className={scroll === 0 ? "navigation_container" : positionScroll === 'bottom' || scroll > 30 ? "navigation_container scrollDown_nav__container" : "navigation_container scrollUp_nav__container"}>
+            <img src="https://scoozi.ru/images/logo3.png" className={scroll === 0 ? "navigation_logo" : positionScroll === 'bottom' || scroll > 30  ? "navigation_logo scrollDown_logo" : "navigation_logo scrollUp_logo"} alt="https://scoozi.ru/images/logo3.png"/>
+            <ul className={scroll === 0 ? "navigation_list" : positionScroll === 'bottom' || scroll > 30 ? "navigation_list scrollDown_nav_list" : "navigation_list scrollUp_nav_list"}>{navButton}</ul>
         </nav>
         <div className="info_restaurant">
             <h1 className="title_restaurant"><span className="logo_title">SCOOZI</span> — НАСТОЯЩИЙ <br/> <span className="text_title">СЕМЕЙНЫЙ РЕСТОРАН</span></h1>

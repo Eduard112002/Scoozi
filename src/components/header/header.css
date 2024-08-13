@@ -11,7 +11,7 @@
     display: flex;
     position: fixed;
     width: 100%;
-    padding-left: 25%;
+    padding-left: 22%;
 }
 
 .scrollUp_nav__container{
@@ -24,10 +24,11 @@
 @keyframes  scrollNavUp{
     0%{
         height: 65px;
+        background-color: rgba(40, 40, 40, 0.95);
     }
     50% {
         height: 70px;
-        background-color: rgba(40, 40, 40, 0.95);
+        background-color: rgba(40, 40, 40, 0.50);
     }
 
     100%{
@@ -50,7 +51,7 @@
     }
     50% {
         height: 70px;
-        background-color: rgba(40, 40, 40, 0.95);
+        background-color: rgba(40, 40, 40, 0.50);
     }
 
     100%{
@@ -61,7 +62,7 @@
 
 .navigation_logo{
     width: 250px;
-    margin-right: 270px;
+    margin-right: 300px;
     height: 100px;
 }
 
@@ -76,17 +77,17 @@
     0%{
         height: 50px;
         width: 150px;
-        margin-right: 370px;
+        margin-right: 400px;
     }
     50% {
         height: 70px;
         width: 180px;
-        margin-right: 300px;
+        margin-right: 370px;
     }
     100%{
         height: 100px;
         width: 250px;
-        margin-right: 270px;
+        margin-right: 300px;
     }
 }
 
@@ -97,21 +98,21 @@
     animation-fill-mode: forwards;
 }
 
-@keyframes  scrollLogoDown{
+@keyframes scrollLogoDown{
     0%{
         height: 100px;
         width: 250px;
-        margin-right: 270px;
+        margin-right: 300px;
     }
     50% {
         height: 70px;
         width: 180px;
-        margin-right: 340px;
+        margin-right: 370px;
     }
     100%{
         height: 50px;
         width: 150px;
-        margin-right: 370px;
+        margin-right: 400px;
     }
 }
 
@@ -164,6 +165,7 @@
 .navigation_button{
     list-style-type: none;
     color: white;
+    cursor: pointer;
     font-size: 14px;
     letter-spacing: 2px;
     font-weight: 200;
@@ -173,7 +175,7 @@
 
 .navigation_button:hover {
     animation-name: colorTextNav;
-    animation-duration: 0.5s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
 }
 
@@ -183,6 +185,8 @@
     }
     to{
         color: #da4e48;
+        font-weight: 400;
+        letter-spacing: 1.7px;
     }
 }
 
@@ -197,7 +201,7 @@
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 55px;
-    padding-top: 80px;
+    padding-top: 180px;
     cursor: default;
 }
 
